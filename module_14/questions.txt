@@ -1,0 +1,63 @@
+In your own terms, define the following terms:
+
+What is HTTP?
+
+HTTP is the hypertext transfer protocol, which manages requests between a client's device and a server.
+A TCP connection is opened between the two, and requests/responses are communicated between the two 
+using HTTP as a standard for that communication.  
+
+What is a URL?
+
+A URL is the uniform resource locator.  This consists of several parts.  Consider 
+HTTP://domainname/path/?key=value&key2=value2
+
+ HTTP:// or HTTPS:// describes the protocol for parsing the request. 
+ domainname is a text representation of an IP address, and is mapped from the string to the ipaddress by a DNS.
+path is the relative path of the resource that is being accessed to the root directory pointed to by the ip address.
+? is the beginning of a query string. Key=value is an attribute of that query string, and additional
+attributes are separated by an ampersand.
+
+What is DNS?
+
+DNS the domain name system, which stores key value pairs for online resources.  
+Essentially, a web domain is a text representation of an ip address.  Users remember this simple text string,
+and a DNS maps it to the desired IP address.  
+
+What is a query string?
+
+A query string contains attributes of a GET request.  These attributes can be used by the HTML or javascript code 
+to alter the contents of the webpage.
+
+What are two HTTP verbs and how are they different?
+
+GET and POST are two common http verbs.  GET is a request type that accesses data from a server (no side effects), and 
+POST is a request that modifies content on the server (side effects).
+
+What is an HTTP request?
+An http request consists of a verb, a path, a HTTP version, and additional headers.
+The verb describes what type of request is going to be sent, and the additional headers clarify what the
+host name is, and what content is expected.
+
+
+What is an HTTP response?
+
+An http response consists of a HTTP version, a response code, a response code description, and additional headers
+within a response body. These additional headers describe the content that is being transferred 
+back to the request.
+
+What is an HTTP header? Give a couple examples of request and response headers you have seen.
+
+An HTML header is a key:value pair that contains information about the content being requested or the 
+content within a response.  For a request "HOST: hostname" is a common header, which describes the location 
+of the resource being requested. "Accept-Language" tells the server what kind of language the response. should
+be returned in.  A response will contain headers such as "Last-Modified", "Date", and "Server".
+
+What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
+
+somesite is sent to the DNS to lookup the associated IP address.  Then the URL is used to form the request 
+according to the protocol specified (http://).  A TCP connection is formed with the server at that address,
+and the HTTP request is sent to the server.  The server parses the HTTP request, accesses the database for
+the required information (and modifies any information as necessary).  Then, this information is written into 
+an HTTP response, and sent back to the client. The browser will interpret the response, parse the HTML, and
+generate the content on the page (create the DOM).
+
