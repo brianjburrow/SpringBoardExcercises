@@ -1,0 +1,30 @@
+*{
+    box-sizing:border-box;
+    color: white;
+}
+
+body {
+    background-color: black;
+    font-family: Verdana, sans-serif;
+}
+
+header{
+    text-align: center;
+    font-size: 4em;
+}
+
+.search{
+    color:black;
+}
+
+.clear {
+    color:black;
+}
+
+.img-container{
+
+}
+
+.img{
+    background-color:red;
+}
