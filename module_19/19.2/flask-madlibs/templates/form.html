@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{story_text}}</h1>
+<form action="/story">
+    {% for part_of_speech in parts_of_speech%}
+    <div>
+        <label for={{part_of_speech}}>{{part_of_speech}}</label>
+        <input type="text" id={{part_of_speech}} placeholder={{part_of_speech}} name={{part_of_speech}}>
+    </div>
+    {% endfor %}
+    <button>Submit!</button>
+</form>
+{% endblock %}

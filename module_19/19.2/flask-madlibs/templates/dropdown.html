@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="dropdown">
+    <span>Select a Madlib from Dropdown</span>
+    <div class="dropdown-content">
+        {% for index in optionIndex%}
+        <a href="/form/{{index}}">{{optionText[index]}}</a>
+        <br>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
