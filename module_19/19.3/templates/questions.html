@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Question {{question_number}}</h1>
+<p>{{question_text}}</p>
+<form>
+    {% for choice in choices %}
+    <div>{{choice}} <input type="checkbox" name="answer"></div>
+    {% endfor %}
+    {% if allow_text %}
+    <label for="comments">Comments:</label>
+    <input type="text" placeholder="comments" id="comments" name="comments">
+    {% endif %}
+    <a href="/questions/{{next_index}}"><button>Next Question</button></a>
+</form>
+{% endblock %}
