@@ -22,4 +22,5 @@ ON owners.id = owner_id
 GROUP BY owner_id
 HAVING COUNT(*) > 1) sq
 ON owners.id=sq.owner_id
+where ROUND(sq.avgprice) > 10000
 order by first_name DESC;
