@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 id='timer'>Time Remaining: </h1>
+<h6 class='left-container'>Number of Games Played: {{session['num_plays']}}</h6>
+<h6 class='left-container'>Highest Score: {{session['high_score']}}</h6>
+{% for i in range(5) %}
+{% set row = session['board']['row-%d'%i] %}
+<div>
+    {% for char in row %}
+    <span class='board-element'>{{char}}</span>
+    {% endfor %}
+</div>
+{% endfor %}
+
+<form action="/#" method=" post" id='submission'>
+    <input type="text" placeholder="Submit a word" name='guess' id='guess' autocomplete="off" autofocus="autofocus">
+    <button>Submit</button>
+</form>
+
+<form action="/"><button class='restart'>Start a New Game</button></form>
+
+{% block game_progress %}
+
+{% endblock %}
+
+
+{% endblock %}

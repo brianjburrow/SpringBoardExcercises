@@ -1,0 +1,54 @@
+* {
+    box-sizing: border-box;
+}
+h1{
+    text-align: center;
+}
+
+h6{
+    margin:0;
+}
+div {
+    margin-left:3vw;
+}
+.board-element {
+    width: 16vw;
+    height: 10vh;
+    background-color:  lightgray;
+    border-style:double;
+    display: inline-block;
+    padding: 0em;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top: 1vh;
+    text-align:center;
+    padding-top: 3vh;
+    font-size: 3vh;
+}
+
+form {
+    margin-top: 1vh;
+    margin-left: 4vw;
+}
+input{
+    width:71vw;
+    margin-right: 2vw;
+}
+
+button{
+    width:16vw;
+}
+
+.word-list{
+    margin-left: 0.5vw;
+}
+
+.restart{
+    width: 89.4vw;
+    margin-bottom:1vw;
+}
+
+.left-container {
+    margin-left: 4vw;
+    margin-bottom:1vw;
+}
