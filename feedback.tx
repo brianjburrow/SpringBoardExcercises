@@ -1,0 +1,11 @@
+CREATE TABLE league(
+	league_id 
+)
+
+CREATE TABLE league_to_players(
+	league_id
+	player_id
+)
+
+
+https://www.researchgate.net/figure/Simplified-DDL-Diagram-of-BNDB-The-simplified-structure-of-the-database-schema_fig2_5933825
