@@ -41,10 +41,10 @@ CREATE TABLE songs
   release_date DATE NOT NULL
 );
 
-CREATE TABLE albumns
+CREATE TABLE albums
 (
   id SERIAL PRIMARY KEY,
-  albumn_name TEXT NOT NULL
+  album_name TEXT NOT NULL
 );
 
 CREATE TABLE artists
@@ -64,7 +64,7 @@ CREATE TABLE producers
 CREATE TABLE song_album(
   id SERIAL PRIMARY KEY,
   song_id INTEGER REFERENCES songs,
-  albumn_id integer REFERENCES albumns
+  album_id integer REFERENCES albumns
 );
 
 CREATE TABLE song_artist(

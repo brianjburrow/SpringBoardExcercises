@@ -40,12 +40,7 @@ CREATE TABLE planets
 CREATE TABLE moons
 (
   id SERIAL PRIMARY KEY,
-  name TEXT NOT NULL
+  name TEXT NOT NULL,
+  planet_id INTEGER REFERENCES planets
 )
 
-CREATE TABLE planet_moons
-(
-  id SERIAL PRIMARY KEY,
-  planet_id INTEGER REFERENCES planets,
-  moon_id INTEGER REFERENCES moons
-)

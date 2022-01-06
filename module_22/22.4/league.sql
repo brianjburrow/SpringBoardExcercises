@@ -10,7 +10,6 @@ CREATE DATABASE league;
 
 CREATE TABLE teams(
     team_id SERIAL PRIMARY KEY,
-    num_wins INTEGER NOT NULL,
     stadium TEXT NOT NULL,
     coach INTEGER NOT NULL REFERENCES players,
 );
@@ -50,7 +49,14 @@ CREATE TABLE players(
 )
 
 CREATE TABLE league(
-    season_id SERIAL PRIMARY KEY,
+    league_id SERIAL PRIMARY KEY,
     season_start_date DATE,
     season_end_date DATE
 );
+
+
+CREATE TABLE league_player(
+    id SERIAL PRIMARY KEY,
+    player_id INT REFERENCES players,
+    league_Id INT REFERENCES league
+)
