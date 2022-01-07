@@ -3,4 +3,23 @@
 {% block title %} New User {% endblock %}
 
 
-{% block content %} Content {% endblock %}
+{% block content %}
+<h1>Create a New User</h1>
+<form action="/users/new" method='POST'>
+    <div class='form-element'>
+        <label for="fname">First Name</label>
+        <input type="text" id='fname' name='fname' class='user-input'>
+    </div>
+
+    <div class='form-element'>
+        <label for="lname">Last Name</label>
+        <input type="text" id='lname' name='lname' class='user-input'>
+    </div>
+
+    <div class='form-element'>
+        <label for="user_image">Profile Picture URL</label>
+        <input type="text" id='user_image' name='user_image' class='user-input'>
+    </div>
+    <button>Create User</button>
+</form>
+{% endblock %}
