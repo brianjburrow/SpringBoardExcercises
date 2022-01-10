@@ -6,8 +6,16 @@
 <h1>User {{user.first_name}} {{user.last_name}}</h1>
 
 <img src="{{user.img_url}}" alt="Profile Picture" class="profile-pic">
-<form action="/users/{{user_id}}/edit"><button>Edit</button></form>
+<h1>
+    Posts
+</h1>
+<ul>
+    {% for post in posts %}
+    <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+    {% endfor %}
+</ul>
 <br>
-<form action="/users/{{user_id}}/delete" method='POST'><button>Delete</button></form>
+<form action="/users/{{user_id}}/posts/new" class="inline-buttons"><button>New Post</button></form>
+
 
 {% endblock %}

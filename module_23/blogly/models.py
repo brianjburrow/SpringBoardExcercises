@@ -8,10 +8,8 @@ first_name and last_name
 image_url for profile images
 '''
 
-
-
-from enum import auto
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 db = SQLAlchemy()
 
@@ -27,7 +25,8 @@ class User(db.Model):
 
     id = db.Column(db.Integer,
     primary_key=True,
-    autoincrement=True)
+    autoincrement=True,
+    unique = True)
 
     first_name = db.Column(db.String(50),
     nullable = False)
@@ -45,3 +44,25 @@ class User(db.Model):
         u = self
         return f"User {u.id}: {u.first_name} {u.last_name} displays {u.img_url}"
 
+class Post(db.Model):
+
+    __tablename__ = 'posts'
+    id = db.Column(db.Integer, 
+    primary_key = True,
+    autoincrement = True,
+    unique = True)
+
+    title = db.Column(db.String(200),
+    nullable = False)
+
+    content = db.Column(db.Text(), nullable = False)
+
+    created_at = db.Column(db.Text, 
+    nullable = False)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def __repr__(self):
+        '''Show info about the post object'''
+        u = self
+        return f"User {u.user_id} post titled {u.title} from {u.created_at}"

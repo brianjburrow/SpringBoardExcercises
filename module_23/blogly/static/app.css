@@ -16,6 +16,16 @@ label{
 }
 
 .profile-pic{
-    width: 10vw;
-    height:10vw;
+    width: 15vw;
+    height:25vh;
+}
+
+.content-box{
+    height: 20vh;
+    vertical-align: top;
+}
+
+
+.inline-buttons{
+    display:inline-block;
 }
