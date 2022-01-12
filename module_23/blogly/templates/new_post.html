@@ -16,6 +16,15 @@
         <label for="post_content content-box-label">Content</label>
         <textarea type="text" id='post_content' name='post_content' class='user-input content-box'></textarea>
     </div>
+    <div>
+        Select Tags:
+        <br>
+        {% for tag in tags %}
+        <input type="checkbox" id="{{tag.id}}" name="checked_tags" value="{{tag.name}}">
+        <label for="{{tag.id}}">{{tag.name}}</label>
+        <br>
+        {% endfor %}
+    </div>
 
     <button>Create Post</button>
 </form>

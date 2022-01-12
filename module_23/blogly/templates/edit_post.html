@@ -18,7 +18,22 @@
             class='user-input content-box'>{{post.content}}</textarea>
     </div>
 
+    <div>
+        Select Tags:
+        <br>
+        {% for tag in tags %}
+        {% if tag in post_tags %}
+        <input type="checkbox" id="{{tag.id}}" name="checked_tags" value="{{tag.name}}" checked>
+        {% else %}
+        <input type="checkbox" id="{{tag.id}}" name="checked_tags" value="{{tag.name}}">
+        {% endif %}
+        <label for="{{tag.id}}">{{tag.name}}</label>
+        <br>
+        {% endfor %}
+    </div>
+
     <button>Submit Edits</button>
+    <a href="'/users/{{user.id}}"><button>Cancel Edit</button></a>
 </form>
-<a href="'/users/{{user.id}}"><button>Cancel Edit</button></a>
+
 {% endblock %}

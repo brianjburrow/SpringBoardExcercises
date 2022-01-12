@@ -7,6 +7,13 @@
 <h1>{{post.title}}</h1>
 <p>{{post.content}}</p>
 <p>By {{user.first_name}} {{user.last_name}}</p>
+TAGS:
+{% for tag in tags %}
+<a class='tag-link' href="/tags/{{tag.id}}">
+    <span class='tag'>{{tag.name}}</span>
+</a>
+{% endfor %}
+<br>
 <a href="/users"><button>Cancel</button></a>
 <a href="/posts/{{post.id}}/edit"><button>Edit</button></a>
 <a href="/posts/{{post.id}}/delete"><button>Delete</button></a>

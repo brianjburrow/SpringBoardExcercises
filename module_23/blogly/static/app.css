@@ -29,3 +29,17 @@ label{
 .inline-buttons{
     display:inline-block;
 }
+
+.tag{
+    background-color:blue;
+    border-radius: 1em;
+    padding:0.25em;
+    color: white;
+    margin-bottom: 1vh;
+    display:inline-block;
+    font-size:0.75em;
+}
+
+.tag-link{
+    text-decoration:none;
+}

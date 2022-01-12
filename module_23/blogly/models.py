@@ -62,7 +62,31 @@ class Post(db.Model):
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
+    post_tag = db.relationship("PostTag", backref='post')
+
     def __repr__(self):
         '''Show info about the post object'''
         u = self
         return f"User {u.user_id} post titled {u.title} from {u.created_at}"
+
+
+class Tag(db.Model):
+    __tablename__= 'tags'
+    id = db.Column(db.Integer, primary_key = True, autoincrement=True)
+    name = db.Column(db.String(10))
+
+    tag_post = db.relationship("PostTag", backref='tag')
+
+    post = db.relationship("Post", secondary="post_tags", backref='tag')
+
+    
+class PostTag(db.Model):
+    __tablename__ = 'post_tags'
+
+    post_id = db.Column(db.Integer, 
+        db.ForeignKey('posts.id'), 
+        primary_key = True)
+
+    tag_id = db.Column(db.Integer, 
+        db.ForeignKey('tags.id'), 
+        primary_key= True)
