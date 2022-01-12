@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} New Pet {% endblock %}
+
+
+{% block content %}
+<h1>Information for {{pet.name}}</h1>
+<div class='show-pet'>
+    {% if pet.photo_url is not none and pet.photo_url != '' %}
+    <img src="{{pet.photo_url}}" alt="Image for {{pet.name}}">
+    {% else %}
+    <img src="https://www.thermaxglobal.com/wp-content/uploads/2020/05/image-not-found-300x169.jpg"
+        alt="Missing image for {{pet.name}}">
+    {% endif %}
+    <br>
+    <ul>
+        <li>Species: {{pet.species}}</li>
+        <li>Age: {{pet.age}}</li>
+        <li>Notes: {{pet.notes}}</li>
+        <li>Available? {{pet.available}}</li>
+    </ul>
+</div>
+<h2>Edit Information</h2>
+<form id="create-pet-form" method="POST">
+    {{ form.hidden_tag() }}
+    {% for field in form if field.widget.input_type != 'hidden' %}
+    <p>
+        {{ field.label }}
+        {{ field }}
+
+        {% for error in field.errors %}
+        {{ error }}
+        {% endfor %}
+    </p>
+    {% endfor %}
+    <button type='Submit Edits'>Submit</button>
+</form>
+<a href="/"><button>View All Pets</button></a>
+{% endblock %}

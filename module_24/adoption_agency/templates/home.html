@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %} All Pets {% endblock %}
+
+{% block content %}
+<h1>Available Pets</h1>
+
+{% for pet in pets %}
+{% if pet.available %}
+<div class='show-pet'>
+    {% if pet.photo_url is not none and pet.photo_url != '' %}
+    <img src="{{pet.photo_url}}" alt="Image for {{pet.name}}">
+    {% else %}
+    <img src="https://www.thermaxglobal.com/wp-content/uploads/2020/05/image-not-found-300x169.jpg"
+        alt="Missing image for {{pet.name}}">
+    {% endif %}
+    <br>
+    <a href="/{{pet.id}}">{{pet.name}}</a>
+</div>
+{% endif %}
+{% endfor %}
+
+<h1>Unavailable Pets</h1>
+{% for pet in pets %}
+{% if not pet.available %}
+<div class='show-pet'>
+    {% if pet.photo_url is not none and pet.photo_url != '' %}
+    <img src="{{pet.photo_url}}" alt="Image for {{pet.name}}">
+    {% else %}
+    <img src="https://www.thermaxglobal.com/wp-content/uploads/2020/05/image-not-found-300x169.jpg"
+        alt="Missing image for {{pet.name}}">
+    {% endif %}
+    <a href="/{{pet.id}}">{{pet.name}}</a>
+</div>
+{% endif %}
+{% endfor %}
+<br>
+<a href="/add"><button>Add new pet</button></a>
+{% endblock %}
