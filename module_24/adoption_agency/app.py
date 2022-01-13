@@ -14,12 +14,10 @@ debug = DebugToolbarExtension(app)
 
 connect_db(app)
 
-
 @app.route('/')
 def show_all_pets():
     pets = Pet.query.all()
     return render_template('home.html', pets=pets)
-
 
 @app.route('/add', methods=['GET', 'POST'])
 def add_pet():
@@ -29,7 +27,6 @@ def add_pet():
         return redirect('/')
     else:
         return render_template("add_pet_form.html", form=form)
-
 
 @app.route('/<pet_id>', methods=['GET', 'POST'])
 def edit_pet(pet_id):
