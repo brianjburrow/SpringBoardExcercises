@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='app.css') }}">
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+
+    <form action="/api/cupcakes" method="POST">
+        <label for="flavor">Flavor</label>
+        <input type="text" id='flavor' name='flavor' placeholder='flavor'>
+        <br>
+        <label for="rating">Rating</label>
+        <input type="text" id='rating' name='rating' placeholder='rating'>
+        <br>
+        <label for="size">Size</label>
+        <input type="text" id='size' name='size' placeholder='size'>
+        <br>
+        <label for="image">Image</label>
+        <input type="text" id='image' name='image' placeholder='Image'>
+        <br>
+        <button>Submit</button>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{{ url_for('static',filename='app.js') }}"></script>
+</body>
+
+</html>
