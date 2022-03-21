@@ -36,7 +36,7 @@ router.post('/', async (req, res, next)=>{
 
 router.get('/:code', async (req, res, next)=>{
     /*
-    Return obj of company: {company: {code, name, description, invoices: [id, ...]}}
+    Return obj of company: {company: {code, name, description, invoices: [id, ...], industries:[text,text,..]}}
     If the company given cannot be found, this should return a 404 status response.
     */
    try {
