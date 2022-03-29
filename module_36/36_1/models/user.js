@@ -3,7 +3,6 @@
 const ExpressError = require("../expressError");
 const bcrypt = require('bcrypt');
 const { BCRYPT_WORK_FACTOR } = require("../config");
-const jwt = require("jsonwebtoken");
 const db = require('../db');
 
 
@@ -50,10 +49,7 @@ class User {
     FROM USERS
     WHERE username = $1`, [username]);
     const user = results.rows[0];
-    if (user & await bcrypt.compare(password, user.password)){
-      return true;
-    }
-    return false;
+    return user && await bcrypt.compare(password, user.password);
   }
 
   /** Update last_login_at for user */
@@ -78,7 +74,8 @@ class User {
 
   static async all() {
     const results = await db.query(`SELECT username, first_name, last_name,
-    phone from USERS` );
+    phone from USERS
+    ORDER BY username` );
     return results.rows;
   }
 
@@ -95,6 +92,9 @@ class User {
     const results = await db.query(`SELECT username, first_name, last_name,
     phone, join_at, last_login_at from USERS
     WHERE username=$1`, [username]);
+    if(!results.rows[0]){
+      throw new ExpressError(`No user with ${username} exists`, 404);
+    }
     return results.rows[0];
   }
 
