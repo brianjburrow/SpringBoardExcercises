@@ -1,8 +1,9 @@
 /** Express app for bookstore. */
 
-
 const express = require("express");
 const app = express();
+
+const validate = require('jsonschema').validate;
 
 app.use(express.json());
 
