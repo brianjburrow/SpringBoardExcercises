@@ -12,7 +12,9 @@ const {SECRET_KEY} = ('../config.js');
  **/
 
 router.post('/login', async (req, res, next)=>{
+    // check input, return error messages
     try{
+        
         const {username, password} = req.body;
         if (await User.authenticate(username, password)){
             const token = jwt.sign({username}, SECRET_KEY)

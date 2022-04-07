@@ -6,6 +6,31 @@ const { BCRYPT_WORK_FACTOR } = require("../config");
 const db = require('../db');
 
 
+// Error types from database operations
+// // duplicate unique keys
+// // data type errors
+// // cascading error (b/c you must delete data in another table first)
+
+class dbErrorHandling(){
+  /* 
+  write checks for specific types of database errors that are returned by
+  the db.query() calls. 
+  */
+
+}
+
+/*
+// retrieve the associated country from the database
+        const countries = await connection.query(sql_c, p.country_id);
+
+        if (!countries.length)
+          throw new Errors.InternalServerError('country not found');
+
+        p.country = countries[0];
+*/
+
+
+
 /** User of the site. */
 
 class User {
@@ -15,7 +40,7 @@ class User {
    */
 
   static async register({username, password, first_name, last_name, phone}) {
-    if (!username || ! password){
+    if (!username || !password){
       throw new ExpressError("Username and password required", 400);
     }
     if (!first_name || !last_name){
@@ -34,6 +59,8 @@ class User {
     VALUES ($1, $2, $3, $4, $5) 
     returning username, password, frist_name, last_name, phone`, 
     [username, hashedPassword, first_name, last_name, phone]);
+    // this could potentially return an error, and need to do error checking here
+    // data base error handling.
 
     return results.rows[0];
    }
