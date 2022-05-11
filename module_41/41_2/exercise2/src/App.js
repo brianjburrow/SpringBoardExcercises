@@ -11,6 +11,5 @@ function App() {
   );
 }
 
-App.defaultProps = {colors: ['red', 'blue', 'green', 'black', 'orange', 'purple']}
 
 export default App;

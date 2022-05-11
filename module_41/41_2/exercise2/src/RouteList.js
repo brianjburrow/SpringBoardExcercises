@@ -1,4 +1,4 @@
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 import React, {useState, useEffect} from 'react';
 import ColorList from './ColorList';
 import Color from './Color';
@@ -25,10 +25,10 @@ const RouteList = ()=>{
 
     return (
         <Routes>
-            <Route path='/' element = {<div>Home</div>}></Route>
-            <Route path='/colors' element={<ColorList />}></Route>
-            <Route path='/colors/new' element = {<NewColorForm/>}></Route>
-            <Route path='/colors/:name' element={<Color />}></Route>
+            <Route path='/colors' element={<ColorList colors={colors}/>}></Route>
+            <Route path='/colors/new' element = {<NewColorForm handleAdd={handleAdd}/>}></Route>
+            <Route path='/colors/:name' element={<Color colors = {colors}/>}></Route>
+            <Route path="*" element = {<Navigate to='/colors' replace/>}/>
         </Routes>
     )
 }
